@@ -1,0 +1,32 @@
+@mixin clearfix {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+@mixin min-width($breakpoint) {
+  @media only screen and (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin empty-hide {
+  &:empty {
+    display: none;
+  }
+}
+
+@mixin overlay {
+  content: '';
+  position: absolute;
+  left: -7px;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  width: auto;
+  height: auto;
+  border: 0;
+  background: #333;
+  z-index: 1;
+  opacity: 0.4;
+}

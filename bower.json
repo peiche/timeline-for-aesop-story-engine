@@ -1,0 +1,21 @@
+{
+  "name": "timeline-for-aesop-story-engine",
+  "description": "Vertical timeline content for Aesop Story Engine.",
+  "main": "index.js",
+  "authors": [
+    "Paul <peiche@gmail.com>"
+  ],
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "tgm-plugin-activation": "https://github.com/thomasgriffin/TGM-Plugin-Activation/archive/master.zip"
+  }
+}

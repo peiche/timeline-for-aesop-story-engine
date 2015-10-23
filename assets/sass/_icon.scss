@@ -1,0 +1,32 @@
+.aesop-component-timeline-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: $event-background;
+
+  @include min-width($width-wide) {
+    width: 60px;
+    height: 60px;
+    left: 50%;
+    margin-left: -30px;
+  }
+
+  .dashicons,
+  .fa {
+    display: block;
+    position: relative;
+    margin: auto;
+    text-align: center;
+    top: 50%;
+    transform: translate(0, -50%);
+
+    @include min-width($width-wide) {
+      width: 30px;
+      height: 30px;
+      font-size: 30px;
+    }
+  }
+}

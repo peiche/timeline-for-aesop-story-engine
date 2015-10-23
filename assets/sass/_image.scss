@@ -1,0 +1,48 @@
+.aesop-component-timeline-image {
+  display: none;
+  position: absolute;
+  left: -7px;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #333;
+  background-size: cover;
+  background-position: center;
+
+  .aesop-component-timeline-content.has-image & {
+    display: block;
+  }
+
+  &:before,
+  &:after {
+    position: absolute;
+    content: '';
+    left: 0;
+    border: 7px solid transparent;
+    z-index: 1;
+  }
+
+  &:before {
+    top: 0;
+    border-left: 7px solid $timeline-background;
+    height: 23px;
+    border-top: 0;
+
+    @include min-width($width-wide) {
+      height: 31px;
+    }
+  }
+
+  &:after {
+    position: absolute;
+    content: '';
+    bottom: 0;
+    border-left: 7px solid $timeline-background;
+    border-bottom: 0;
+    top: 23px;
+
+    @include min-width($width-wide) {
+      top: 31px;
+    }
+  }
+}

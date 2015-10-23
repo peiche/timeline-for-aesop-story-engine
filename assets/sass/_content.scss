@@ -1,0 +1,205 @@
+.aesop-component-timeline-block {
+  position: relative;
+  margin: 2em 0;
+
+  @include min-width($width-wide) {
+    margin: 4em 0;
+  }
+
+  &:after {
+    @include clearfix;
+  }
+
+  &:first-child {
+    margin-top: 0;
+
+    @include min-width($width-wide) {
+      margin-top: 0;
+    }
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+
+    @include min-width($width-wide) {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.aesop-component-timeline-content {
+  position: relative;
+  margin-left: 60px;
+  background: $event-background;
+  padding: 1em;
+
+  // arrow for imageless content
+  &:before {
+    content: '';
+    position: absolute;
+    top: 16px;
+    right: 100%;
+    height: 0;
+    width: 0;
+    border: 7px solid transparent;
+    border-right: 7px solid $event-background;
+  }
+
+  // dark overlay for content with a background image
+  &.has-image:before {
+    @include overlay;
+  }
+
+  &:after {
+    @include clearfix;
+  }
+
+  @include min-width($width-wide) {
+    margin-left: 0;
+    padding: 1.6em;
+    width: 45%;
+
+    &:before {
+      top: 24px;
+      left: 100%;
+      border-color: transparent;
+      border-left-color: $event-background;
+    }
+  }
+}
+
+.aesop-component-timeline-title,
+.aesop-component-timeline-text,
+.aesop-component-timeline-link,
+.aesop-component-timeline-timestamp {
+  position: relative;
+  z-index: 1;
+
+  .aesop-component-timeline-content.has-image & {
+    color: #fff;
+  }
+}
+
+.aesop-component-timeline-title {
+  margin: 0;
+
+  @include empty-hide;
+
+  @include min-width($width-medium) {
+    font-size: 20px;
+  }
+}
+
+.aesop-component-timeline-link,
+.aesop-component-timeline-timestamp {
+  display: inline-block;
+
+  @include min-width($width-medium) {
+    font-size: 14px;
+  }
+}
+
+.aesop-component-timeline-link {
+  margin-top: 1em;
+
+  &:empty {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    transition: background 200ms;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.25);
+    }
+  }
+
+  @include min-width($width-wide) {
+    float: left;
+  }
+
+  .aesop-component-timeline-content.no-link & {
+    display: none;
+  }
+}
+
+.aesop-component-timeline-timestamp {
+  float: left;
+  padding: .8em 0 0;
+  opacity: .7;
+
+  @include empty-hide;
+
+  @include min-width($width-wide) {
+    position: absolute;
+    width: 100%;
+    left: 122%;
+    top: 6px;
+    font-size: 16px;
+  }
+
+  .aesop-component-timeline-content.has-image & {
+    @include min-width($width-wide) {
+      color: inherit;
+    }
+  }
+}
+
+.aesop-component-timeline-text {
+  margin: 1em 0 0;
+  line-height: 1.6;
+
+  @include empty-hide;
+
+  @include min-width($width-medium) {
+    font-size: 16px;
+  }
+}
+
+@include min-width($width-wide) {
+  .aesop-component-timeline-block:nth-child(even) {
+    .aesop-component-timeline-content {
+      float: right;
+
+      &:before {
+        top: 24px;
+        left: auto;
+        right: 100%;
+        border-color: transparent;
+        border-right-color: $event-background;
+      }
+
+      &.has-image:before {
+        @include overlay;
+      }
+    }
+
+    .aesop-component-timeline-timestamp {
+      left: auto;
+      right: 122%;
+      text-align: right;
+    }
+  }
+
+  .aesop-component-timeline-block:nth-child(odd) {
+    .aesop-component-timeline-content.has-image:before {
+      left: 0;
+      right: -7px;
+    }
+
+    .aesop-component-timeline-image {
+      left: 0;
+      right: -7px;
+    }
+
+    .aesop-component-timeline-image:before,
+    .aesop-component-timeline-image:after {
+      left: auto;
+      right: 0;
+      border-left: 7px solid transparent;
+      border-right: 7px solid $timeline-background;
+    }
+  }
+}
